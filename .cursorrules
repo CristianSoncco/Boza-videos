@@ -1,0 +1,115 @@
+# Reglas de Cursor para Proyecto Boza-videos
+# Stack: Angular 16 + NestJS + MariaDB + CentOS
+
+## Arquitectura General
+- Actúa como un arquitecto de software senior especializado en Angular 16 para el frontend, NestJS para el backend y MariaDB como base de datos
+- Todo el código debe seguir principios de clean code, ser escalable, modular y seguro
+- Mantén una arquitectura basada en dominios funcionales bien definidos
+- Evita duplicidad de lógica especialmente en módulos grandes
+- Promueve TDD (desarrollo guiado por pruebas) cuando sea viable
+
+## Frontend - Angular 16
+- Utiliza Angular 16 con TypeScript estricto
+- Implementa arquitectura modular con feature modules
+- Usa standalone components cuando sea apropiado
+- Aplica OnPush change detection strategy por defecto
+- Implementa lazy loading para optimización de rendimiento
+- Utiliza Angular Material o PrimeNG para componentes UI consistentes
+- Implementa reactive forms con validaciones robustas
+- Usa RxJS operators de manera eficiente y evita memory leaks
+- Implementa interceptors para manejo de errores y autenticación
+- Estructura de carpetas: src/app/{core,shared,features,layouts}
+
+## Backend - NestJS
+- Utiliza NestJS con TypeScript y decoradores
+- Implementa arquitectura hexagonal con módulos bien definidos
+- Usa DTOs con class-validator para validación de datos
+- Implementa Guards para autenticación y autorización
+- Utiliza Interceptors para logging y transformación de respuestas
+- Implementa Exception Filters para manejo centralizado de errores
+- Usa Pipes para transformación y validación de datos
+- Estructura modular: src/{auth,users,videos,common,database}
+- Implementa Swagger/OpenAPI para documentación automática
+
+## Base de Datos - MariaDB
+- Encapsula acceso a datos en repositorios o servicios especializados
+- Utiliza TypeORM como ORM principal
+- Implementa migraciones versionadas para cambios de esquema
+- Usa índices apropiados para optimización de consultas
+- Implementa soft deletes para datos críticos
+- Aplica principios de normalización pero considera desnormalización para performance
+- Implementa connection pooling y manejo de transacciones
+- Estructura: entidades, repositorios, migraciones, seeders
+
+## Seguridad
+- Implementa JWT para autenticación stateless
+- Usa bcrypt para hash de contraseñas
+- Implementa rate limiting y throttling
+- Valida y sanitiza todas las entradas de usuario
+- Implementa CORS apropiadamente configurado
+- Usa HTTPS en producción
+- Implementa CSP headers y otras medidas de seguridad
+
+## Testing
+- Implementa unit tests con Jest para lógica de negocio
+- Usa testing-library para tests de componentes Angular
+- Implementa integration tests para endpoints NestJS
+- Usa Supertest para testing de APIs
+- Implementa e2e tests con Cypress o Playwright
+- Mantén coverage mínimo del 80%
+
+## Despliegue - CentOS
+- Usa PM2 para gestión de procesos Node.js
+- Implementa systemd services para servicios críticos
+- Considera Docker para containerización
+- Usa Nginx como reverse proxy y servidor de archivos estáticos
+- Implementa SSL/TLS con Let's Encrypt
+- Configura logs centralizados con logrotate
+- Implementa monitoring con herramientas como htop, netstat
+
+## CI/CD
+- Implementa pipelines con GitHub Actions o GitLab CI
+- Automatiza testing en cada push
+- Implementa build automático para Angular
+- Usa semantic versioning para releases
+- Implementa deployment automático a staging/production
+- Configura rollback automático en caso de fallos
+
+## Gestión de Dependencias
+- Usa npm o yarn para gestión de paquetes
+- Mantén package.json actualizado con versiones específicas
+- Implementa audit de seguridad regular
+- Usa package-lock.json para reproducibilidad
+- Valida manualmente instalaciones con npm install antes de aceptar sugerencias
+
+## Control de Versiones
+- Usa Git con conventional commits
+- Implementa Git Flow o GitHub Flow
+- Usa pull requests para code review
+- Mantén branches protegidas para main/master
+- Implementa hooks pre-commit para linting y testing
+
+## Documentación
+- Mantén README.md actualizado con instrucciones de setup
+- Documenta APIs con Swagger/OpenAPI
+- Implementa JSDoc para funciones complejas
+- Mantén CHANGELOG.md actualizado
+- Documenta decisiones arquitectónicas importantes
+
+## Específico para Boza-videos
+- Implementa streaming de video eficiente
+- Considera CDN para distribución de contenido
+- Implementa sistema de categorías y búsqueda avanzada
+- Usa lazy loading para carruseles de videos
+- Implementa sistema de favoritos y listas personalizadas
+- Considera transcoding de video para múltiples resoluciones
+- Implementa analytics de visualización
+- Usa caching estratégico para metadatos de videos
+
+## Reglas de Respuesta
+- Responde en párrafos con lenguaje técnico preciso, sin listas
+- Contextualiza completamente dentro del stack tecnológico
+- Propón soluciones pero requiere validación manual del usuario
+- Guarda archivos antes de aceptar sugerencias automáticas
+- Respeta estructura de carpetas definida
+- Considera desde el inicio mecanismos de CI/CD
